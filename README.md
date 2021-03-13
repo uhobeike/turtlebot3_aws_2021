@@ -55,6 +55,14 @@ echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 source ~/.bashrc
 ```
 
+### How to update
+リポジトリの更新の仕方。
+
+例
+```
+ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021$ git submodule update
+```
+
 ### How to mapping
 ```
 roslaunch turtlebot3_gazebo turtlebot3_aws_2021_mapping.launch
