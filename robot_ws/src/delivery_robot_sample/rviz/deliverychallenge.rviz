@@ -339,6 +339,28 @@ Visualization Manager:
       Transport Hint: raw
       Unreliable: false
       Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.100000001
+      Class: rviz/PoseArray
+      Color: 44; 37; 243
+      Enabled: true
+      Head Length: 0.300000002
+      Head Radius: 0.100000001
+      Name: Waypoint_Pose
+      Shaft Length: 0.2
+      Arrow Length: 0.3
+      Shape: ARROW
+      Topic: /waypoint
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Class: rviz/Marker
+      Enabled: true
+      Name: Waypoint_Marker
+      Topic: /visualization_marker
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
