@@ -25,23 +25,6 @@ rosdep update
 rosdep install -r -y --from-paths --ignore-src ./
 ```
 
-### How to source update
-* クローンしたリポジトリのアップデートを行う場合の方法
-```
-cd ~/turtlebot3_aws_ws/src/turtlebot3_aws_2021
-
-cd turtlebot3
-git pull
-cd ..
-
-cd turtlebot3_msgs 
-git pull 
-cd ..
-
-cd turtlebot3_simulations
-git pull 
-```
-
 ### How to build
 
 ```
