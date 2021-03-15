@@ -61,6 +61,7 @@ source ~/.bashrc
 
 例
 ```
+ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021$ git pull
 ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021$ git submodule update
 ```
 
