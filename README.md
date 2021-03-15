@@ -2,7 +2,7 @@
 
 ### How to install
 
-* `catkin build`を使用するためにインストール。
+* `catkin build`を使用するためにインストール
 
 ```
 sudo apt install python-catkin-tools
@@ -73,9 +73,9 @@ rosrun map_server map_saver -f ~/map
 ```
 
 ### How to navigation
-* waypointのデータは、turtlebot3_navigation/csv下にある。
+* waypointのデータは、turtlebot3_navigation/csv下にある
 
-* turtlebot3_navigation.launchの中を見ると使っているものが分かる。
+* turtlebot3_navigation.launchの中を見ると使っているものが分かる
 ```
 roslaunch turtlebot3_gazebo turtlebot3_aws_2021.launch
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch
@@ -84,7 +84,7 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 ```
 
 ### How to waypoint set 
-* 正直、使い方が分かっていないと使いづらいが、慣れれば問題ない。
+* 正直、使い方が分かっていないと使いづらいが、慣れれば問題ない
 ```
 roslaunch turtlebot3_navigation waypoint_set.launch 
 次にsを打ってスタートさせる。
