@@ -63,8 +63,8 @@ rosrun map_server map_saver -f ~/map
 ```
 roslaunch turtlebot3_gazebo turtlebot3_aws_2021.launch
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch
-開始するためには、ターミナルでgoと打つ
-終了する時は、ctl+cとqを打つ
+開始するためには、別のターミナルでrostopic pub  -1 /goal_command std_msgs/String go
+終了する時は、Ctl+c、またはrostopic pub  -1 /goal_command std_msgs/String q
 ```
 
 ### How to waypoint set 
