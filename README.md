@@ -72,7 +72,7 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 ```
 roslaunch turtlebot3_navigation waypoint_set.launch 
 次にsを打ってスタートさせる。
-rvizにある、2D Pose Estimateを使ってwaypointをおいていく。
+rvizにある、2D Pose Estimate(右の方)を使ってwaypointをおいていく。
 置きミスのときは、jを打って削除できる。
 終了時は、fを押して、csvを出力する。
 ```
