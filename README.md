@@ -46,6 +46,9 @@ source ~/.bashrc
 ```
 ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021$ git pull
 ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021$ git submodule update
+更新できなかった場合
+ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021$ cd turtlebot3
+ubuntu@ubuntu:~/turtlebot3_aws_2021_ws/src/turtlebot3_aws_2021/turtlebot3$ git pull origin turtlebot3_aws_2021
 ```
 
 ### How to mapping
