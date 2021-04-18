@@ -32,8 +32,17 @@ var move_backward_down = function () {console.log("move_backward pressed"); Move
 var move_backward_up = function () {console.log("move_backward released"); MoveAction = "";};
 var move_stop_down = function () {console.log("move_stop pressed"); MoveAction = "stop"; SyncJobFunction()};
 var move_stop_up = function () {console.log("move_stop released"); MoveAction = "";};
-var map_save = function () { SaveMapFunction(); }
 var go_to_target = function() { GoToTargetFunction(NavigationControlInstance.state.x, NavigationControlInstance.state.y, NavigationControlInstance.state.heading) }
+var navigation_start = function () { StartFunction(); }
+var next_waypoint = function () { ForcedNextWaypointMapFunction(); }
+var prev_waypoint = function () { ForcedPrevWaypointFunction(); }
+var initial_position = function () { ReturnToInitialPositionFunction(); }
+var left_course = function () { LeftCourseSelectFunction(); }
+var right_course = function () { RightCourseSelectFunction(); }
+var action_restart = function () { ActionRestartFunction(); }
+var action_cancel = function () { ActionCancelFunction(); }
+
+var map_save = function () { SaveMapFunction(); }
 
 window.document.onkeydown = function(event){
   switch(event.key) {
@@ -159,6 +168,126 @@ class SaveMap extends React.Component {
   }
 }
 
+class WaypointNav extends React.Component {
+  render() {
+    return (
+      <div class="waypointnav">
+        <div class="title">WaypointNav</div>
+        <div class="start">
+          <div class="name">Navigation and restart controls</div>
+        </div>
+        <div class="next">
+          <div class="name">Waypoint front and back control</div>
+        </div>
+        <div class="initial_position">
+          <div class="name">Return to initial position</div>
+        </div>
+        <div class="left_course">
+          <div class="name">Select course</div>
+        </div>
+        <div class="action_restart">
+          <div class="name">Action control</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class StartNavigation extends React.Component {
+  render() {
+    return (
+      <div class="start">
+        <div class="start_button">
+          <button class="button action_button" onClick={navigation_start}>StartNav/ReStartNav</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class ForcedNextWaypoint extends React.Component {
+  render() {
+    return (
+      <div class="next">
+        <div class="next_button">
+          <button class="button action_button" onClick={next_waypoint}>ForcedNext</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class ForcedPrevWaypoint extends React.Component {
+  render() {
+    return (
+      <div class="prev">
+        <div class="prev_button">
+          <button class="button action_button" onClick={prev_waypoint}>ForcedPrev</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class ReturnToInitialPosition extends React.Component {
+  render() {
+    return (
+      <div class="initial_position">
+        <div class="initial_position_button">
+          <button class="button action_button" onClick={initial_position}>InitialPosition</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class LeftCourseSelect extends React.Component {
+  render() {
+    return (
+      <div class="left_course">
+        <div class="left_course_button">
+          <button class="button action_button" onClick={left_course}>LeftCourse</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class RightCourseSelect extends React.Component {
+  render() {
+    return (
+      <div class="right_course">
+        <div class="right_course_button">
+          <button class="button action_button" onClick={right_course}>RightCourse</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class ActionRestart extends React.Component {
+  render() {
+    return (
+      <div class="action_restart">
+        <div class="action_restart_button">
+          <button class="button action_button" onClick={action_restart}>AcRestart</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class ActionCancel extends React.Component {
+  render() {
+    return (
+      <div class="action_cancel">
+        <div class="action_cancel_button">
+          <button class="button action_button" onClick={action_cancel}>AcCancel</button> 
+        </div>
+      </div>
+    );
+  }
+}
 
 class GameBoard extends React.Component {
   render() {
@@ -166,11 +295,20 @@ class GameBoard extends React.Component {
         <div class="whiteboard">
             <div className="top">
                 <Controller/>
+                <WaypointNav/>
                 <Odometry/>
           </div>
           <div class="bottom">
             <Navigation/>
             <SaveMap/>
+            <StartNavigation/>
+            <ForcedNextWaypoint/>
+            <ForcedPrevWaypoint/>
+            <ReturnToInitialPosition/>
+            <LeftCourseSelect/>
+            <RightCourseSelect/>
+            <ActionRestart/>
+            <ActionCancel/>
           </div>
         </div>
     );

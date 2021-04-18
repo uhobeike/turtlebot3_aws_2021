@@ -5,6 +5,15 @@ var OdometryControlInstance;
 var SyncJobFunction;
 var SaveMapFunction;
 var GoToTargetFunction;
+var FreeSelectWaypointFunction;
+var StartFunction;
+var ForcedNextWaypointMapFunction;
+var ForcedPrevWaypointFunction;
+var ReturnToInitialPositionFunction;
+var LeftCourseSelectFunction;
+var RightCourseSelectFunction;
+var ActionRestartFunction;
+var ActionCancelFunction;
 var MoveAction = "";
 var MoveActionPrev = "";
 var SyncLastTime = 0;
@@ -99,6 +108,18 @@ async function main() {
     }
   }
 
+  FreeSelectWaypointFunction = function() {
+    let payload = {};
+    console.log("save map!!");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "save";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+  
+  //------------------------------------------------------------
   GoToTargetFunction = function(x,y, heading) {
     console.log("go to target!!");
     let payload = {};
@@ -114,17 +135,104 @@ async function main() {
     MoveAction = "";
   };
 
-  SaveMapFunction = function() {
+  FreeSelectWaypointFunction = function() {
     let payload = {};
     console.log("save map!!");
     let request_id =  (new Date()).getTime();
-    payload["command"] = "map";
+    payload["command"] = "waypoint";
     payload["action"] = "save";
     payload["request_id"] = request_id
     console.log(payload);
     deviceIot.publish(publish_topic, JSON.stringify(payload));
   }
+  //-----------------------------------------------------------
+  StartFunction = function() {
+    let payload = {};
+    console.log("Start navigation.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "start";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+  
+  ForcedNextWaypointMapFunction = function() {
+    let payload = {};
+    console.log("Forcibly advance waypoints.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "next";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
 
+  ForcedPrevWaypointFunction = function() {
+    let payload = {};
+    console.log("Forcibly return waypoints.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "prev";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+  
+  ReturnToInitialPositionFunction = function() {
+    let payload = {};
+    console.log("Return to the initial point.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "initialposi";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  LeftCourseSelectFunction = function() {
+    let payload = {};
+    console.log("Choose the left course.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "leftcourse";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  RightCourseSelectFunction = function() {
+    let payload = {};
+    console.log("Choose the right course.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "rightcourse";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  ActionRestartFunction = function() {
+    let payload = {};
+    console.log("Restart the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "actionrestart";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  ActionCancelFunction = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "actioncancel";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
 
   setInterval(SyncJobFunction, 1000);  
 }

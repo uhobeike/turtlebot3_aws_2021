@@ -7,8 +7,8 @@
 }
 
 .background .whiteboard {
-  width: 600px;
-  height: 420px;
+  width: 1920px;
+  height: 1080px;
   background-color: #fff;
   margin: auto;
 }
@@ -65,8 +65,150 @@
   height: 60px;
 }
 
+.background .whiteboard .top .waypointnav {
+  width: 700px;
+  border: 1px solid #eee;
+  height: 450px;
+  position: relative;
+}
+.background .whiteboard .top .waypointnav .title {
+  position: absolute;
+  top: 0px;
+  left: 15px;
+  vertical-align: text-top;
+  font-size:x-large;
+}
+
+.background .whiteboard .top .waypointnav .start {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .start .start_button {
+  position: absolute;
+  top: 120px;
+  left: 340px;
+}
+.background .whiteboard .top .waypointnav .start .name{
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  width: 300px;
+  font-size: 1.2em;
+  border-bottom:#242F3E 2px solid 
+}
+
+.background .whiteboard .top .waypointnav .next {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .next .next_button {
+  position: absolute;
+  top: 320px;
+  left: 600px;
+}
+.background .whiteboard .top .waypointnav .next .name{
+  position: absolute;
+  top: 80px;
+  left: 15px;
+  width: 635px;
+  font-size: 1.2em;
+  border-bottom:#242F3E 2px solid 
+}
+
+.background .whiteboard .top .waypointnav .prev {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .prev .prev_button {
+  position: absolute;
+  top: 320px;
+  left: 340px;
+}
+
+.background .whiteboard .top .waypointnav .initial_position {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .initial_position .initial_position_button {
+  position: absolute;
+  top: 120px;
+  left: 675px;
+}
+.background .whiteboard .top .waypointnav .initial_position .name{
+  position: absolute;
+  top: -270px;
+  left: 350px;
+  width: 300px;
+  font-size: 1.2em;
+  border-bottom:#242F3E 2px solid 
+}
+
+.background .whiteboard .top .waypointnav .left_course {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .left_course .left_course_button {
+  position: absolute;
+  top: 220px;
+  left: 340px;
+}
+.background .whiteboard .top .waypointnav .left_course .name{
+  position: absolute;
+  top: -320px;
+  left: 15px;
+  width: 635px;
+  font-size: 1.2em;
+  border-bottom:#242F3E 2px solid 
+}
+
+.background .whiteboard .top .waypointnav .right_course {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .right_course .right_course_button {
+  position: absolute;
+  top: 220px;
+  left: 600px;
+}
+
+.background .whiteboard .top .waypointnav .action_restart {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .action_restart .action_restart_button {
+  position: absolute;
+  top: 420px;
+  left: 600px;
+}
+.background .whiteboard .top .waypointnav .action_restart .name{
+  position: absolute;
+  top: -270px;
+  left: 15px;
+  width: 635px;
+  font-size: 1.2em;
+  border-bottom:#242F3E 2px solid 
+}
+
+.background .whiteboard .top .waypointnav .action_cancel {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .action_cancel .action_cancel_button {
+  position: absolute;
+  top: 420px;
+  left: 340px;
+}
+
 .background .whiteboard .top .location {
-  width: 285px;
+  width: 400px;
   border: 1px solid #eee;
   height: 270px;
   position: relative;
@@ -206,7 +348,7 @@
 .background .whiteboard .bottom .save .save_button {
   position: absolute;
   top: 71px;
-  left: 30px;
+  left: 150px;
 }
 
 .input_field {
@@ -216,9 +358,9 @@
 }
 
 .action_button {
-  width: 105px;
+  width: 205px;
   height: 52px;
-  font-size: 1.12em;
+  font-size: 1.2em;
   color: #222;
   border-style:none;
   background-color:#eee;
