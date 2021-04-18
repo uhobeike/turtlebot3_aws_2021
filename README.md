@@ -79,3 +79,8 @@ rvizにある、2D Pose Estimate(右の方)を使ってwaypointをおいてい�
 置きミスのときは、jを打って削除できる。
 終了時は、fを押して、csvを出力する。
 ```
+
+### How to git checkout cloud9
+```
+git checkout --recurse-submodules cloud9
+```
