@@ -21,6 +21,7 @@
 <script type="text/babel"">
 
 var NavigationControlInstance;
+var WaypointFreeControlInstance;
 
 var move_forward_down = function () {console.log("move_forward pressed"); MoveAction = "forward"; SyncJobFunction()};
 var move_forward_up = function () {console.log("move_forward released"); MoveAction = "";};
@@ -33,12 +34,11 @@ var move_backward_up = function () {console.log("move_backward released"); MoveA
 var move_stop_down = function () {console.log("move_stop pressed"); MoveAction = "stop"; SyncJobFunction()};
 var move_stop_up = function () {console.log("move_stop released"); MoveAction = "";};
 var go_to_target = function() { GoToTargetFunction(NavigationControlInstance.state.x, NavigationControlInstance.state.y, NavigationControlInstance.state.heading) }
+var free_waypoint = function() { FreeSelectWaypointFunction(WaypointFreeControlInstance.state.index) }
 var navigation_start = function () { StartFunction(); }
 var next_waypoint = function () { ForcedNextWaypointMapFunction(); }
 var prev_waypoint = function () { ForcedPrevWaypointFunction(); }
 var initial_position = function () { ReturnToInitialPositionFunction(); }
-var left_course = function () { LeftCourseSelectFunction(); }
-var right_course = function () { RightCourseSelectFunction(); }
 var action_restart = function () { ActionRestartFunction(); }
 var action_cancel = function () { ActionCancelFunction(); }
 
@@ -62,6 +62,11 @@ window.document.onkeydown = function(event){
     case "G":
       GoToTargetFunction(NavigationControlInstance.state.x, NavigationControlInstance.state.y, NavigationControlInstance.state.heading);
       break; 
+    case "w":
+    case "W":
+      FreeSelectWaypointFunction(WaypointFreeControlInstance.state.index);
+      break;
+
   }
 }
 
@@ -156,16 +161,26 @@ class Navigation extends React.Component {
   }
 }
 
-class SaveMap extends React.Component {
+class FreeWaypoint extends React.Component {
+  constructor(props) {
+    super(props);
+    WaypointFreeControlInstance = this;
+    this.state = { index: 0 };
+  }  
   render() {
     return (
-      <div class="save">
-        <div class="save_button">
-          <button class="button action_button" onClick={map_save}>Save Map</button> 
-        </div>
+      <div class="free_waypoint">
+        <div class="title_free_waypoint">FreeWaypoint</div>
+        <div class="free_waypoint_index">index</div>
+        <div class="free_waypoint_value_index"><input class="input_field_waypoint" type="text" onChange={this.onChangeWaypointIndex} value={this.state.index} /></div>
+        <div class="free_waypoint_button"><button class="button action_button" onClick={free_waypoint}>FreeWaypointSet</button></div>
       </div>
     );
   }
+
+  onChangeWaypointIndex(e) {
+    WaypointFreeControlInstance.setState({index: e.target.value});
+  } 
 }
 
 class WaypointNav extends React.Component {
@@ -181,9 +196,6 @@ class WaypointNav extends React.Component {
         </div>
         <div class="initial_position">
           <div class="name">Return to initial position</div>
-        </div>
-        <div class="left_course">
-          <div class="name">Select course</div>
         </div>
         <div class="action_restart">
           <div class="name">Action control</div>
@@ -241,30 +253,6 @@ class ReturnToInitialPosition extends React.Component {
   }
 }
 
-class LeftCourseSelect extends React.Component {
-  render() {
-    return (
-      <div class="left_course">
-        <div class="left_course_button">
-          <button class="button action_button" onClick={left_course}>LeftCourse</button> 
-        </div>
-      </div>
-    );
-  }
-}
-
-class RightCourseSelect extends React.Component {
-  render() {
-    return (
-      <div class="right_course">
-        <div class="right_course_button">
-          <button class="button action_button" onClick={right_course}>RightCourse</button> 
-        </div>
-      </div>
-    );
-  }
-}
-
 class ActionRestart extends React.Component {
   render() {
     return (
@@ -300,13 +288,11 @@ class GameBoard extends React.Component {
           </div>
           <div class="bottom">
             <Navigation/>
-            <SaveMap/>
+            <FreeWaypoint/>
             <StartNavigation/>
             <ForcedNextWaypoint/>
             <ForcedPrevWaypoint/>
             <ReturnToInitialPosition/>
-            <LeftCourseSelect/>
-            <RightCourseSelect/>
             <ActionRestart/>
             <ActionCancel/>
           </div>

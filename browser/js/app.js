@@ -107,17 +107,6 @@ async function main() {
       deviceIot.publish(publish_topic, JSON.stringify(payload));
     }
   }
-
-  FreeSelectWaypointFunction = function() {
-    let payload = {};
-    console.log("save map!!");
-    let request_id =  (new Date()).getTime();
-    payload["command"] = "waypoint";
-    payload["action"] = "save";
-    payload["request_id"] = request_id
-    console.log(payload);
-    deviceIot.publish(publish_topic, JSON.stringify(payload));
-  }
   
   //------------------------------------------------------------
   GoToTargetFunction = function(x,y, heading) {
@@ -135,15 +124,17 @@ async function main() {
     MoveAction = "";
   };
 
-  FreeSelectWaypointFunction = function() {
+  FreeSelectWaypointFunction = function(index) {
+    console.log("Freely choose waypoints.");
     let payload = {};
-    console.log("save map!!");
     let request_id =  (new Date()).getTime();
     payload["command"] = "waypoint";
-    payload["action"] = "save";
+    payload["action"] = "freewaypoint";
     payload["request_id"] = request_id
+    payload["waypoint_index"] = Number(index);
     console.log(payload);
     deviceIot.publish(publish_topic, JSON.stringify(payload));
+    MoveAction = "";
   }
   //-----------------------------------------------------------
   StartFunction = function() {
@@ -185,28 +176,6 @@ async function main() {
     let request_id =  (new Date()).getTime();
     payload["command"] = "waypoint";
     payload["action"] = "initialposi";
-    payload["request_id"] = request_id
-    console.log(payload);
-    deviceIot.publish(publish_topic, JSON.stringify(payload));
-  }
-
-  LeftCourseSelectFunction = function() {
-    let payload = {};
-    console.log("Choose the left course.");
-    let request_id =  (new Date()).getTime();
-    payload["command"] = "waypoint";
-    payload["action"] = "leftcourse";
-    payload["request_id"] = request_id
-    console.log(payload);
-    deviceIot.publish(publish_topic, JSON.stringify(payload));
-  }
-
-  RightCourseSelectFunction = function() {
-    let payload = {};
-    console.log("Choose the right course.");
-    let request_id =  (new Date()).getTime();
-    payload["command"] = "waypoint";
-    payload["action"] = "rightcourse";
     payload["request_id"] = request_id
     console.log(payload);
     deviceIot.publish(publish_topic, JSON.stringify(payload));
