@@ -3,7 +3,6 @@ const awsIot = require('aws-iot-device-sdk');
 
 var OdometryControlInstance;
 var SyncJobFunction;
-var SaveMapFunction;
 var GoToTargetFunction;
 var FreeSelectWaypointFunction;
 var StartFunction;
@@ -109,7 +108,7 @@ async function main() {
   }
   
   //------------------------------------------------------------
-  GoToTargetFunction = function(x,y, heading) {
+  GoToTargetFunction = function(x, y, heading) {
     console.log("go to target!!");
     let payload = {};
     let request_id =  (new Date()).getTime();

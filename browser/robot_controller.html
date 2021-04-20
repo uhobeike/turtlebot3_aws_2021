@@ -42,8 +42,6 @@ var initial_position = function () { ReturnToInitialPositionFunction(); }
 var action_restart = function () { ActionRestartFunction(); }
 var action_cancel = function () { ActionCancelFunction(); }
 
-var map_save = function () { SaveMapFunction(); }
-
 window.document.onkeydown = function(event){
   switch(event.key) {
     case "ArrowUp":
@@ -133,7 +131,7 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     NavigationControlInstance = this;
-    this.state = { x: 0, y:0, heading:0 };
+    this.state = { x: 0, y: 0, heading: 0 };
   }  
   render() {
     return (

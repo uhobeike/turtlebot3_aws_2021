@@ -247,7 +247,7 @@
 }
 
 .background .whiteboard .bottom {
-  width: 600px;
+  width: 960px;
   height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -255,7 +255,7 @@
 }
 
 .background .whiteboard .bottom .goal {
-  width: 435px;
+  width: 960px;
   height: 150px;
   position: relative;
 }
@@ -306,7 +306,7 @@
 
 .background .whiteboard .bottom .goal .goal_button {
   position: absolute;
-  top: 71px;
+  top: 75px;
   left: 330px;
 }
 
@@ -319,38 +319,27 @@
 .background .whiteboard .bottom .free_waypoint .title_free_waypoint {
   position: absolute;
   top: -180px;
-  left: -300px;
+  left: -660px;
   vertical-align: text-top;
   font-size:x-large;
 }
 .background .whiteboard .bottom .free_waypoint .free_waypoint_index {
   position: absolute;
   top: -50px;
-  left: -300px;
+  left: -665px;
   width: 285px;
   border-bottom:#242F3E 2px solid   
 }
 .background .whiteboard .bottom .free_waypoint .free_waypoint_value_index {
   position: absolute;
   top: -125px;
-  left: -250px;
+  left: -620px;
 }
 
 .background .whiteboard .bottom .free_waypoint .free_waypoint_button {
   position: absolute;
   top: -100px;
-  left: 35px;
-}
-
-.background .whiteboard .bottom .save {
-  width: 165px;
-  height: 150px;
-  position: relative;
-}
-.background .whiteboard .bottom .save .save_button {
-  position: absolute;
-  top: 71px;
-  left: 150px;
+  left: -330px;
 }
 
 .input_field {
