@@ -2,6 +2,7 @@
 const awsIot = require('aws-iot-device-sdk');
 
 var OdometryControlInstance;
+var WayNavInfoControlInstance;
 var SyncJobFunction;
 var GoToTargetFunction;
 var FreeSelectWaypointFunction;
@@ -74,6 +75,21 @@ async function main() {
           y:odom["y"].toFixed(4),
           z:odom["z"].toFixed(4),
           h:(odom["yaw"] * ( 180 / Math.PI )).toFixed(4)
+        })
+      }
+    }
+    else if (command == "waypoint"){
+      
+      let waynavinfo = json["waynavinfo"];
+      if (waynavinfo) {
+        WayNavInfoControlInstance.setState({
+          nextway:waynavinfo["NextWaypointMode"].toFixed(4),
+          finalgoal:waynavinfo["FinalGoalWaypointMode"].toFixed(4),
+          restway:waynavinfo["ReStartWaypointMode"].toFixed(4),
+          goalremode:waynavinfo["GoalReachedMode"].toFixed(4),
+          goalreflag:waynavinfo["GoalReachedFlag"].toFixed(4),
+          accanflag:waynavinfo["ActionCancelFlag"].toFixed(4),
+          wayindex:waynavinfo["WaypointIndex"].toFixed(4)
         })
       }
     }

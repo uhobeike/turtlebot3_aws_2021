@@ -127,6 +127,37 @@ class Odometry extends React.Component {
   }
 }
 
+class WayNavInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    WayNavInfoControlInstance = this;
+    this.state = { nextway:0, finalgoal:0, restway:0, goalremode:0,
+                   goalreflag:0, accanflag:0, wayindex:0};
+  }  
+  render() {
+    return (
+      <div class="waypointnavinfo">
+        <div class="title">WaypointNavInfo</div>
+        <div class="name">Mode/Flag/Index</div>
+        <div class="nextway">NextWaypointMode</div>
+        <div class="finalgoal">FinalGoalWaypointMode</div>
+        <div class="restway">ReStartWaypointMode</div>
+        <div class="goalremode">GoalReachedMode</div>
+        <div class="goalreflag">GoalReachedFlag</div>
+        <div class="accanflag">ActionCancelFlag</div>
+        <div class="wayindex">WaypointIndex</div>
+        <div class="nextway_value">{this.state.nextway}</div>
+        <div class="finalgoal_value">{this.state.finalgoal}</div>
+        <div class="restway_value">{this.state.restway}</div>
+        <div class="goalremode_value">{this.state.goalremode}</div>
+        <div class="goalreflag_value">{this.state.goalreflag}</div>
+        <div class="accanflag_value">{this.state.accanflag}</div>
+        <div class="wayindex_value">{this.state.wayindex}</div>
+      </div>
+    );
+  }
+}
+
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -283,6 +314,7 @@ class GameBoard extends React.Component {
                 <Controller/>
                 <WaypointNav/>
                 <Odometry/>
+                <WayNavInfo/>
           </div>
           <div class="bottom">
             <Navigation/>
