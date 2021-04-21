@@ -83,13 +83,13 @@ async function main() {
       let waynavinfo = json["waynavinfo"];
       if (waynavinfo) {
         WayNavInfoControlInstance.setState({
-          nextway:waynavinfo["NextWaypointMode"].toFixed(4),
-          finalgoal:waynavinfo["FinalGoalWaypointMode"].toFixed(4),
-          restway:waynavinfo["ReStartWaypointMode"].toFixed(4),
-          goalremode:waynavinfo["GoalReachedMode"].toFixed(4),
-          goalreflag:waynavinfo["GoalReachedFlag"].toFixed(4),
-          accanflag:waynavinfo["ActionCancelFlag"].toFixed(4),
-          wayindex:waynavinfo["WaypointIndex"].toFixed(4)
+          nextway:waynavinfo["NextWaypointMode"],
+          finalgoal:waynavinfo["FinalGoalWaypointMode"],
+          restway:waynavinfo["ReStartWaypointMode"],
+          goalremode:waynavinfo["GoalReachedMode"],
+          goalreflag:waynavinfo["GoalReachedFlag"],
+          accanflag:waynavinfo["ActionCancelFlag"],
+          wayindex:waynavinfo["WaypointIndex"]
         })
       }
     }
