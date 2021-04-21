@@ -148,7 +148,7 @@ Visualization Manager:
       Axis: Z
       Channel Name: intensity
       Class: rviz/LaserScan
-      Color: 0; 255; 0
+      Color: 164; 0; 0
       Color Transformer: FlatColor
       Decay Time: 0
       Enabled: true
@@ -361,6 +361,20 @@ Visualization Manager:
       Topic: /visualization_marker
       Unreliable: false
       Value: true
+    - Alpha: 1
+      Class: rviz/MarkerArray
+      Enabled: true
+      Name: Waypoint_Area
+      Marker Topic: /waypoint_area
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Class: rviz/MarkerArray
+      Enabled: true
+      Name: Waypoint_Number_Text
+      Marker Topic: /waypoint_number_txt
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -420,3 +434,4 @@ Window Geometry:
   Width: 704
   X: -1
   Y: -30
+

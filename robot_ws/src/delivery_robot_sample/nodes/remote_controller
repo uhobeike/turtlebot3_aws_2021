@@ -101,6 +101,8 @@ class RemoteController():
                 elif payload['command'] == "navigation":
                     rospy.loginfo("remote_controller Move {}".format(payload['action']))
                     self.action = "auto"
+                elif payload['command'] == "waypoint":
+                    self.action = "auto"
                 
         except Exception as e:
             rospy.logwarn(e)
@@ -112,3 +114,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

@@ -46,9 +46,22 @@ catkin_package()
 ################################################################################
 # Build
 ################################################################################
-add_executable(waypoint_navigation src/waypoint_navigation.cpp)
-target_link_libraries(waypoint_navigation ${catkin_LIBRARIES})
-
+##WaypointNav_AWS
+add_library(WaypointNav_AWS
+  src/WaypointNav_AWS.cpp
+)
+add_dependencies(WaypointNav_AWS 
+  ${TARGET_NAME} 
+  ${PROJECT_NAME}_generate_messages_cpp
+)
+add_executable(WaypointNav_AWS_node
+  src/WaypointNav_AWS_node.cpp
+)
+target_link_libraries(
+  WaypointNav_AWS_node
+  WaypointNav_AWS
+  ${catkin_LIBRARIES}
+)
 ################################################################################
 # Install
 ################################################################################
