@@ -23,6 +23,7 @@ catkin_package(
 )
 
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -50,10 +51,6 @@ catkin_package()
 add_library(WaypointNav_AWS
   src/WaypointNav_AWS.cpp
 )
-add_dependencies(WaypointNav_AWS 
-  ${TARGET_NAME} 
-  ${PROJECT_NAME}_generate_messages_cpp
-)
 add_executable(WaypointNav_AWS_node
   src/WaypointNav_AWS_node.cpp
 )
@@ -62,6 +59,7 @@ target_link_libraries(
   WaypointNav_AWS
   ${catkin_LIBRARIES}
 )
+
 ################################################################################
 # Install
 ################################################################################
@@ -80,7 +78,17 @@ install(DIRECTORY csv
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(TARGETS waypoint_navigation
+install(DIRECTORY include
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(TARGETS WaypointNav_AWS_node
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS WaypointNav_AWS
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
