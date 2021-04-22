@@ -41,6 +41,11 @@ var prev_waypoint = function () { ForcedPrevWaypointFunction(); }
 var initial_position = function () { ReturnToInitialPositionFunction(); }
 var action_restart = function () { ActionRestartFunction(); }
 var action_cancel = function () { ActionCancelFunction(); }
+var waypoint_strategy1 = function () { WaypointStrategy1Function(); }
+var waypoint_strategy2 = function () { WaypointStrategy2Function(); }
+var waypoint_strategy3 = function () { WaypointStrategy3Function(); }
+var waypoint_strategy123 = function () { WaypointStrategy123Function(); }
+
 
 window.document.onkeydown = function(event){
   switch(event.key) {
@@ -229,6 +234,9 @@ class WaypointNav extends React.Component {
         <div class="action_restart">
           <div class="name">Action control</div>
         </div>
+        <div class="waypoint_strategy1">
+          <div class="name">Strategy control</div>
+        </div>
       </div>
     );
   }
@@ -306,6 +314,53 @@ class ActionCancel extends React.Component {
   }
 }
 
+class WaypointStrategy1 extends React.Component {
+  render() {
+    return (
+      <div class="waypoint_strategy1">
+        <div class="waypoint_strategy1_button">
+          <button class="button action_button" onClick={waypoint_strategy1}>Strategy1</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class WaypointStrategy2 extends React.Component {
+  render() {
+    return (
+      <div class="waypoint_strategy2">
+        <div class="waypoint_strategy2_button">
+          <button class="button action_button" onClick={waypoint_strategy2}>Strategy2</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class WaypointStrategy3 extends React.Component {
+  render() {
+    return (
+      <div class="waypoint_strategy3">
+        <div class="waypoint_strategy3_button">
+          <button class="button action_button" onClick={waypoint_strategy3}>Strategy3</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
+class WaypointStrategy123 extends React.Component {
+  render() {
+    return (
+      <div class="waypoint_strategy123">
+        <div class="waypoint_strategy123_button">
+          <button class="button action_button" onClick={waypoint_strategy123}>Strategy123</button> 
+        </div>
+      </div>
+    );
+  }
+}
 class GameBoard extends React.Component {
   render() {
     return (
@@ -325,6 +380,10 @@ class GameBoard extends React.Component {
             <ReturnToInitialPosition/>
             <ActionRestart/>
             <ActionCancel/>
+            <WaypointStrategy1/>
+            <WaypointStrategy2/>
+            <WaypointStrategy3/>
+            <WaypointStrategy123/>
           </div>
         </div>
     );

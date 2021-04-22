@@ -14,6 +14,10 @@ var LeftCourseSelectFunction;
 var RightCourseSelectFunction;
 var ActionRestartFunction;
 var ActionCancelFunction;
+var WaypointStrategy1Function;
+var WaypointStrategy2Function;
+var WaypointStrategy3Function;
+var WaypointStrategy123Function;
 var MoveAction = "";
 var MoveActionPrev = "";
 var SyncLastTime = 0;
@@ -213,6 +217,49 @@ async function main() {
     let request_id =  (new Date()).getTime();
     payload["command"] = "waypoint";
     payload["action"] = "actioncancel";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  WaypointStrategy1Function = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "strategy1";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  WaypointStrategy2Function = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "strategy2";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
+  WaypointStrategy3Function = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "strategy3";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+  WaypointStrategy123Function = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "strategy123";
     payload["request_id"] = request_id
     console.log(payload);
     deviceIot.publish(publish_topic, JSON.stringify(payload));
