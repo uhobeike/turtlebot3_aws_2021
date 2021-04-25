@@ -256,7 +256,7 @@ async function main() {
     deviceIot.publish(publish_topic, JSON.stringify(payload));
   }
 
-  WaypointStrategy3Function = function() {
+  WaypointStrategy4Function = function() {
     let payload = {};
     console.log("Stop the move_base action.");
     let request_id =  (new Date()).getTime();
