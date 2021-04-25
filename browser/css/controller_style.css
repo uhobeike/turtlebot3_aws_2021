@@ -218,6 +218,17 @@
   left: 570px;
 }
 
+.background .whiteboard .top .waypointnav .waypoint_strategy4 {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .waypoint_strategy4 .waypoint_strategy4_button {
+  position: absolute;
+  top: 610px;
+  left: 570px;
+}
+
 .background .whiteboard .top .waypointnav .waypoint_strategy123 {
   width: 165px;
   height: 150px;

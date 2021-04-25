@@ -17,6 +17,7 @@ var ActionCancelFunction;
 var WaypointStrategy1Function;
 var WaypointStrategy2Function;
 var WaypointStrategy3Function;
+var WaypointStrategy4Function;
 var WaypointStrategy123Function;
 var MoveAction = "";
 var MoveActionPrev = "";
@@ -254,6 +255,18 @@ async function main() {
     console.log(payload);
     deviceIot.publish(publish_topic, JSON.stringify(payload));
   }
+
+  WaypointStrategy3Function = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "strategy4";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+
   WaypointStrategy123Function = function() {
     let payload = {};
     console.log("Stop the move_base action.");

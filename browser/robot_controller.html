@@ -44,6 +44,7 @@ var action_cancel = function () { ActionCancelFunction(); }
 var waypoint_strategy1 = function () { WaypointStrategy1Function(); }
 var waypoint_strategy2 = function () { WaypointStrategy2Function(); }
 var waypoint_strategy3 = function () { WaypointStrategy3Function(); }
+var waypoint_strategy4 = function () { WaypointStrategy4Function(); }
 var waypoint_strategy123 = function () { WaypointStrategy123Function(); }
 
 
@@ -350,6 +351,18 @@ class WaypointStrategy3 extends React.Component {
   }
 }
 
+class WaypointStrategy4 extends React.Component {
+  render() {
+    return (
+      <div class="waypoint_strategy4">
+        <div class="waypoint_strategy4_button">
+          <button class="button action_button" onClick={waypoint_strategy4}>Strategy4</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
 class WaypointStrategy123 extends React.Component {
   render() {
     return (
@@ -383,6 +396,7 @@ class GameBoard extends React.Component {
             <WaypointStrategy1/>
             <WaypointStrategy2/>
             <WaypointStrategy3/>
+            <WaypointStrategy4/>
             <WaypointStrategy123/>
           </div>
         </div>
