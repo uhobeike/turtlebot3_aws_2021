@@ -14,6 +14,7 @@ var LeftCourseSelectFunction;
 var RightCourseSelectFunction;
 var ActionRestartFunction;
 var ActionCancelFunction;
+var TeleopCancelFunction;
 var WaypointStrategy1Function;
 var WaypointStrategy2Function;
 var WaypointStrategy3Function;
@@ -218,6 +219,17 @@ async function main() {
     let request_id =  (new Date()).getTime();
     payload["command"] = "waypoint";
     payload["action"] = "actioncancel";
+    payload["request_id"] = request_id
+    console.log(payload);
+    deviceIot.publish(publish_topic, JSON.stringify(payload));
+  }
+  
+  TeleopCancelFunction = function() {
+    let payload = {};
+    console.log("Stop the move_base action.");
+    let request_id =  (new Date()).getTime();
+    payload["command"] = "waypoint";
+    payload["action"] = "teleop_cancel";
     payload["request_id"] = request_id
     console.log(payload);
     deviceIot.publish(publish_topic, JSON.stringify(payload));

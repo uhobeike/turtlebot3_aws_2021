@@ -41,6 +41,7 @@ var prev_waypoint = function () { ForcedPrevWaypointFunction(); }
 var initial_position = function () { ReturnToInitialPositionFunction(); }
 var action_restart = function () { ActionRestartFunction(); }
 var action_cancel = function () { ActionCancelFunction(); }
+var teleop_cancel = function () { TeleopCancelFunction(); }
 var waypoint_strategy1 = function () { WaypointStrategy1Function(); }
 var waypoint_strategy2 = function () { WaypointStrategy2Function(); }
 var waypoint_strategy3 = function () { WaypointStrategy3Function(); }
@@ -315,6 +316,18 @@ class ActionCancel extends React.Component {
   }
 }
 
+class TeleopCancel extends React.Component {
+  render() {
+    return (
+      <div class="teleop_cancel">
+        <div class="teleop_cancel_button">
+          <button class="button teleop_button" onClick={teleop_cancel}>TeleopCancel</button> 
+        </div>
+      </div>
+    );
+  }
+}
+
 class WaypointStrategy1 extends React.Component {
   render() {
     return (
@@ -393,6 +406,7 @@ class GameBoard extends React.Component {
             <ReturnToInitialPosition/>
             <ActionRestart/>
             <ActionCancel/>
+            <TeleopCancel/>
             <WaypointStrategy1/>
             <WaypointStrategy2/>
             <WaypointStrategy3/>

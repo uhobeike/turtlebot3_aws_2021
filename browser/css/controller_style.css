@@ -177,6 +177,17 @@
   left: 340px;
 }
 
+.background .whiteboard .top .waypointnav .teleop_cancel {
+  width: 165px;
+  height: 150px;
+  position: relative;
+}
+.background .whiteboard .bottom .teleop_cancel .teleop_cancel_button {
+  position: absolute;
+  top: 290px;
+  left: 200px;
+}
+
 .background .whiteboard .top .waypointnav .waypoint_strategy1 {
   width: 165px;
   height: 150px;
